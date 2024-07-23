@@ -48,7 +48,6 @@ The information about the workflow structure and cluster resources is
 transmitted as a single json of the following format:
 
 ```
-json :=
 {
     "workflow": {
         "tasks": {
@@ -88,11 +87,14 @@ following format:
 
 ```
 {
-    "<task_name">: {
-        "start": <start_time>,
-        "machine": <machine>
-    },
-    ...
+    "id": <workflow_id>,
+    "schedule": {
+        "<task_name">: {
+            "start": <start_time>,
+            "machine": <machine>
+        },
+        ...
+    }
 }
 ```
 

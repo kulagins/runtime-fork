@@ -1,4 +1,5 @@
 import sys
+import json
 import requests
 import heapq
 from scipy import stats
@@ -30,7 +31,7 @@ class Runtime:
         data['memory_predicted'] = data['memory'].apply(predict)
         return data
 
-    def _api_new_wf(self):
+    def create_new_wf_request(self):
         # construct task data dict
         df = self.task_data[['time_predicted', 'memory_predicted']]
         task_data = {key[0]: df.loc[key[0]].to_dict() for key in df.index}
@@ -48,6 +49,10 @@ class Runtime:
                 'machines': get_machine_info(),
             },
         }
+        return json.dumps(data, indent=4)
+
+    def _api_register_wf(self):
+        data = self.create_new_wf_request()
         try:
             r = requests.post(f'{URL}/new', json=data, timeout=1)
         except requests.ConnectionError:
@@ -56,16 +61,15 @@ class Runtime:
         # TODO check return value
         # TODO check assumption that name is transmitted as plain text
         return r.text
-
-    def _api_start_wf(self):
-        return requests.get(f'{URL}/{self.execution_name}/start').json()
+        # return requests.get(f'{URL}/{self.execution_name}/start').json()
 
     def _api_update_wf(self):
         None
 
     def setup_simulation(self):
-        self.execution_name = self._api_new_wf()
-        self.task_queue = self._api_start_wf()
+        name, queue = self._api_register_wf()
+        self.execution_name = name
+        self.task_queue = queue
         self.event_queue = []
         self.time = 0
         self.finished = False

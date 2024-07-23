@@ -50,10 +50,12 @@ class Cli:
         parser = argparse.ArgumentParser(
             prog='python -m gear',
             description='runtime for b1-coop')
-        parser.add_argument('-i', '--interactive',
-                            action='store_true', default=False)
+        parser.add_argument('-i', '--interactive', action='store_true',
+                            default=False)
         parser.add_argument('-w', '--workflow', default=None,
                             choices=workflow_options)
+        parser.add_argument('-p', '--print-request', action='store_true',
+                            default=False)
         args = parser.parse_args(argv)
 
         if args.interactive:
@@ -63,9 +65,13 @@ class Cli:
             inputsize = int(inputsize)
         else:
             parser.print_help()
+            exit(-1)
 
         wf = Workflow(WF_DOT_FILE_MAP[workflow])
         traces = self.tr.get_traces(workflow, inputsize)
         runtime = Runtime(wf, traces)
+        if args.print_request:
+            print(runtime.create_new_wf_request())
+            return
         runtime.setup_simulation()
         runtime.run_simulation()
