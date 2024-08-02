@@ -1,6 +1,6 @@
 # gear - b1-coop runtime
 
-This repository contains a program for simulating workflow executions on
+This repository contains code for simulating workflow executions on
 heterogenous clusters. The repository is structured as follows:
 
  - `data/traces.csv` contains execution traces for several workflows
@@ -38,7 +38,7 @@ only two types of requests:
  - `/wf/new`: to register a new workflow execution
  - `/wf/<id>/update`: to communicate if the schedule needs to be updated
 
-### Registering a new Workflow
+### Registering a New Workflow Execution
 
 To register a new workflow execution, the simulated runtime makes a single
 POST request to `/wf/new`. The request body contains information about the
