@@ -13,20 +13,21 @@ heterogenous clusters. The repository is structured as follows:
 ## Installing
 
 Assuming a unix system with a posix shell environment and python including
-python-venv installed: Executing the following commands clones the repository
-into `./b1-coop` and prepares everything to run the simulation:
+python-venv and pip installed: Executing the following commands clones the
+repository into `./b1-coop` and prepares everything to run the simulation:
 
 ```
 git clone https://github.com/belapaulus/b1-coop.git
 cd b1-coop
 python -m venv venv
 source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Running the simulation
 
 Assuming that the scheduler (not part of this repository) is running, you can
-run a simulation with `python -m gear -i`.
+run a simulation with `python -m gear -i` from within the repository.
 
 ## Simulation-Scheduler API
 
