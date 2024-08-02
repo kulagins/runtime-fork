@@ -50,7 +50,9 @@ transmitted as a single json of the following format:
 
 ```
 {
+    "algorithm": <algorithm_number>,
     "workflow": {
+        "name": "<workflow_name>",
         "tasks": {
             "<task_name>": {
                 "time_predicted": {
@@ -64,10 +66,6 @@ transmitted as a single json of the following format:
             },
             ...
         },
-        "dependencies": {
-            "<task_name>": [<dependency>, <dependency>, ...],
-            ...
-        }
     },
     "cluster": {
         "machines": {

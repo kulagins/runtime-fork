@@ -35,15 +35,13 @@ class Runtime:
         # construct task data dict
         df = self.task_data[['time_predicted', 'memory_predicted']]
         task_data = {key[0]: df.loc[key[0]].to_dict() for key in df.index}
-        # construct dependency data dict
-        dep_data = {}
-        for edge in self.wf.get_dependencies():
-            dep_data[edge[1]] = dep_data.get(edge[1], []) + [edge[0]]
         # construct final dict
+        # TODO make algorithm configurable via cli
         data = {
+            'algorithm': 1,
             'workflow': {
+                'name': self.wf.name,
                 'tasks': task_data,
-                'dependencies': dep_data,
             },
             'cluster': {
                 'machines': get_machine_info(),
@@ -54,14 +52,16 @@ class Runtime:
     def _api_register_wf(self):
         data = self.create_new_wf_request()
         try:
-            r = requests.post(f'{URL}/new', json=data, timeout=1)
+            r = requests.post(f'{URL}/wf/new', json=data, timeout=1)
         except requests.ConnectionError:
             print('error connecting to scheduler', file=sys.stderr)
             exit(-1)
-        # TODO check return value
-        # TODO check assumption that name is transmitted as plain text
-        return r.text
-        # return requests.get(f'{URL}/{self.execution_name}/start').json()
+        if not r.status_code == 200:
+            print('Unable to register workflow. Server returned:', file=sys.stderr)
+            print(r.status_code, r.text, file=sys.stderr)
+            exit(-1)
+        # TODO construct task_queue from response
+        return None
 
     def _api_update_wf(self):
         None

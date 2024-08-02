@@ -3,7 +3,8 @@ import networkx as nx
 
 
 class Workflow:
-    def __init__(self, dot_file_path):
+    def __init__(self, name, dot_file_path):
+        self.name = name
         self.wf = nx.Graph(nx.nx_pydot.read_dot(dot_file_path))
 
     def _get_label(self, node):

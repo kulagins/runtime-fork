@@ -67,7 +67,7 @@ class Cli:
             parser.print_help()
             exit(-1)
 
-        wf = Workflow(WF_DOT_FILE_MAP[workflow])
+        wf = Workflow(workflow, WF_DOT_FILE_MAP[workflow])
         traces = self.tr.get_traces(workflow, inputsize)
         runtime = Runtime(wf, traces)
         if args.print_request:
