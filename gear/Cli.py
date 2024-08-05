@@ -1,6 +1,7 @@
 import sys
 import argparse
 from gear.Constants import WF_DOT_FILE_MAP, WORKFLOWS
+import json
 from gear.Workflow import Workflow
 from gear.TraceReader import TraceReader
 from gear.Runtime import Runtime
@@ -71,7 +72,7 @@ class Cli:
         traces = self.tr.get_traces(workflow, inputsize)
         runtime = Runtime(wf, traces)
         if args.print_request:
-            print(runtime.create_new_wf_request())
+            print(json.dumps(runtime.create_new_wf_request(), indent=4))
             return
         runtime.setup_simulation()
         runtime.run_simulation()

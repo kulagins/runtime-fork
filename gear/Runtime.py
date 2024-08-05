@@ -1,5 +1,4 @@
 import sys
-import json
 import requests
 import heapq
 from scipy import stats
@@ -47,7 +46,7 @@ class Runtime:
                 'machines': get_machine_info(),
             },
         }
-        return json.dumps(data, indent=4)
+        return data
 
     def _api_register_wf(self):
         data = self.create_new_wf_request()
