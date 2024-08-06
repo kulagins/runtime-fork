@@ -101,10 +101,3 @@ following format:
 
 // TODO
 
-## TODO
-
- - specify interface to update schedule
- - why is time_predicted sometimes 0
- - test run all worfklows and input sizes
- - fix networkx bug
- - improve help output
