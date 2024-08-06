@@ -1,7 +1,8 @@
 import sys
 import argparse
-from gear.Constants import WF_DOT_FILE_MAP, WORKFLOWS
 import json
+from gear.Cluster import Cluster
+from gear.Constants import NODE_FILE, WF_DOT_FILE_MAP, WORKFLOWS
 from gear.Workflow import Workflow
 from gear.TraceReader import TraceReader
 from gear.Runtime import Runtime
@@ -70,7 +71,8 @@ class Cli:
 
         wf = Workflow(workflow, WF_DOT_FILE_MAP[workflow])
         traces = self.tr.get_traces(workflow, inputsize)
-        runtime = Runtime(wf, traces)
+        cluster = Cluster(NODE_FILE)
+        runtime = Runtime(wf, traces, cluster)
         if args.print_request:
             print(json.dumps(runtime.create_new_wf_request(), indent=4))
             return

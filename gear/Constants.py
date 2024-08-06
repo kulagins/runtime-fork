@@ -1,5 +1,5 @@
 from os import path
-NODES = ['asok01', 'asok02', 'c2', 'local', 'n1', 'n2']
+NODES = ['a1', 'a2', 'c2', 'local', 'n1', 'n2']
 NODE_FILE = path.join('data', 'nodes.csv')
 WORKFLOWS = ['atacseq', 'bacass', 'chipseq', 'eager', 'methylseq']
 WF_DOT_FILE_MAP = {wf: path.join('data', 'workflows', f'{wf}.dot')
