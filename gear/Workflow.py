@@ -1,38 +1,40 @@
 import sys
 import networkx as nx
+from graphviz import Digraph
+
+
+def _nx_get_node_name(nx_graph, node):
+    try:
+        label = nx_graph.nodes[node]['label'].lower()
+    except KeyError:
+        print(f'node {node} has no label', file=sys.stderr)
+        exit(-1)
+    return label
 
 
 class Workflow:
     def __init__(self, name, dot_file_path):
         self.name = name
-        self.nx_graph = nx.DiGraph(nx.nx_pydot.read_dot(dot_file_path))
+        # maps from a tasks name to the names of its parents
         self.graph = {}
-        for node in self.nx_graph.nodes:
-            node_name = self._nx_get_node_name(node)
-            deps = {self._nx_get_node_name(edge[0])
-                    for edge in self.nx_graph.in_edges(node)}
+        nx_graph = nx.DiGraph(nx.nx_pydot.read_dot(dot_file_path))
+        for node in nx_graph.nodes:
+            node_name = _nx_get_node_name(nx_graph, node)
+            deps = {_nx_get_node_name(nx_graph, edge[0])
+                    for edge in nx_graph.in_edges(node)}
             self.graph[node_name] = deps
-        self.done_tasks = set()
+        # self.show_graph()
 
-    def _nx_get_node_name(self, node):
-        try:
-            label = self.nx_graph.nodes[node]['label'].lower()
-        except KeyError:
-            print(f'node {node} has no label', file=sys.stderr)
-            exit(-1)
-        return label
+    def show_graph(self):
+        dot = Digraph()
+        for name, deps in self.graph.items():
+            dot.node(name, name)
+            for dep in deps:
+                dot.edge(dep, name)
+        dot.view()
+
+    def get_deps(self, task):
+        return self.graph[task]
 
     def get_tasks(self):
         return self.graph.keys()
-
-    def task_mark_done(self, task):
-        self.done_tasks.add(task)
-
-    def task_is_ready(self, task):
-        for dep in self.graph[task]:
-            if dep not in self.done_tasks:
-                return False
-        return True
-
-    def workflow_is_finished(self):
-        return set(self.graph.keys()) == self.done_tasks

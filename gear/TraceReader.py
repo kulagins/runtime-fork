@@ -1,6 +1,8 @@
 import pandas as pd
 from gear.Constants import TRACE_FILE, TRACE_HEADER
 
+# TODO potentially move prepare data from workflow instance to trace reader
+
 
 class TraceReader:
     def __init__(self):

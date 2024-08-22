@@ -1,11 +1,11 @@
-import sys
 import argparse
-import json
+import sys
 from gear.Cluster import Cluster
-from gear.Constants import NODE_FILE, WF_DOT_FILE_MAP, WORKFLOWS
-from gear.Workflow import Workflow
-from gear.TraceReader import TraceReader
+from gear.Constants import NODE_FILE, WF_DOT_FILE_MAP, WORKFLOWS, URL
 from gear.Runtime import Runtime
+from gear.SchedulerConnector import SchedulerConnector
+from gear.TraceReader import TraceReader
+from gear.Workflow import Workflow
 
 
 def getch():
@@ -44,6 +44,7 @@ class Cli:
         return workflow, inputsize
 
     def start(self, argv):
+        # TODO add proper logging
         workflow_options = []
         for k, v in self.wf_inputsizes_map.items():
             for size in v:
@@ -56,8 +57,6 @@ class Cli:
                             default=False)
         parser.add_argument('-w', '--workflow', default=None,
                             choices=workflow_options)
-        parser.add_argument('-p', '--print-request', action='store_true',
-                            default=False)
         args = parser.parse_args(argv)
 
         if args.interactive:
@@ -72,9 +71,7 @@ class Cli:
         wf = Workflow(workflow, WF_DOT_FILE_MAP[workflow])
         traces = self.tr.get_traces(workflow, inputsize)
         cluster = Cluster(NODE_FILE)
-        runtime = Runtime(wf, traces, cluster)
-        if args.print_request:
-            print(json.dumps(runtime.create_new_wf_request(), indent=4))
-            return
+        scheduler_connector = SchedulerConnector(URL)
+        runtime = Runtime(wf, traces, cluster, scheduler_connector)
         runtime.setup_simulation()
         runtime.run_simulation()

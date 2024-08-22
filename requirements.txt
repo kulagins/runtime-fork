@@ -3,3 +3,4 @@ networkx
 pydot
 scipy
 requests
+graphviz

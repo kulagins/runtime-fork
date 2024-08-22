@@ -4,7 +4,7 @@ This repository contains code for simulating workflow executions on
 heterogenous clusters. The repository is structured as follows:
 
  - `data/traces.csv` contains execution traces for several workflows
- - `data/nodes.csv` contains descriptions for the simulated nodes
+ - `data/machines.csv` contains descriptions for the simulated machines
  - `data/workflows/` contains workflow descriptions in the dot file format
  - `gear/` contains the code for the simulation
  - `contrib/prepare_traces.py` contains a small script to generate the
@@ -14,11 +14,11 @@ heterogenous clusters. The repository is structured as follows:
 
 Assuming a unix system with a posix shell environment and python including
 python-venv and pip installed: Executing the following commands clones the
-repository into `./b1-coop` and prepares everything to run the simulation:
+repository into `./gear` and prepares everything to run the simulation:
 
 ```
-git clone https://github.com/belapaulus/b1-coop.git
-cd b1-coop
+git clone https://github.com/belapaulus/gear.git
+cd gear 
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -42,8 +42,8 @@ only two types of requests:
 
 To register a new workflow execution, the simulated runtime makes a single
 POST request to `/wf/new`. The request body contains information about the
-workflow structure and cluster resources. The response shall contain the id
-for the newly registered workflow as well as a complete schedule.
+workflow and cluster. The response shall contain the id for the newly
+registered workflow as well as a complete schedule.
 
 The information about the workflow structure and cluster resources is
 transmitted as a single json of the following format:
@@ -71,15 +71,13 @@ transmitted as a single json of the following format:
         "machines": {
             "<machine_name>": {
                 "memory": <memory>
+                "speed": <speed>
             },
             ...
         }
     }
 }
 ```
-
-The simulated runtime prints the new workflow request instead of sending it, if
-the `-p` option is specified.
 
 The scheduler shall reply to this request with the schedule in json of the
 following format:
@@ -99,5 +97,35 @@ following format:
 
 ### Requesting an Updated Schedule
 
-// TODO
+In case the runtime can not fulfill the schedule it received, it can make a
+POST request to `/wf/<id>/update` to request an updated schedule. The request
+body contains information about the current workflow execution status as json
+in the following format:
 
+```
+{
+    "finished_tasks": ["<task_1>", "task_2", ...],
+    "running_tasks": {
+        "<task_3": {
+            "start_time": <start_time>,
+            "memory": <memory>,
+        },
+        ...
+    }
+}
+```
+
+The scheduler shall reply to this request with an updated schedule in json of
+the following format:
+
+```
+{
+    "schedule": {
+        "<task_name">: {
+            "start": <start_time>,
+            "machine": <machine>
+        },
+        ...
+    }
+}
+```
