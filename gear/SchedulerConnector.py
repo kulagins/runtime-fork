@@ -4,7 +4,7 @@ import requests
 
 class SchedulerConnector:
     # TODO make algorithm configurable via cli
-    def __init__(self, url, algorithm=3):
+    def __init__(self, url, algorithm):
         self.url = url
         self.algorithm = algorithm
         self.id = None
@@ -23,6 +23,7 @@ class SchedulerConnector:
                 'machines': cluster_data,
             },
         }
+        print(data['algorithm'])
         try:
             r = requests.post(f'{self.url}/wf/new', json=data, timeout=1)
         except requests.ConnectionError:

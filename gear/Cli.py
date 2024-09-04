@@ -55,8 +55,9 @@ class Cli:
             description='runtime for b1-coop')
         parser.add_argument('-i', '--interactive', action='store_true',
                             default=False)
-        parser.add_argument('-w', '--workflow', default=None,
-                            choices=workflow_options)
+        parser.add_argument('-w', '--workflow', default=None)
+        # choices=workflow_options)
+        parser.add_argument('-a', '--algorithm', default='3')
         args = parser.parse_args(argv)
 
         if args.interactive:
@@ -71,7 +72,8 @@ class Cli:
         wf = Workflow(workflow, WF_DOT_FILE_MAP[workflow])
         traces = self.tr.get_traces(workflow, inputsize)
         cluster = Cluster(NODE_FILE)
-        scheduler_connector = SchedulerConnector(URL)
+        scheduler_connector = SchedulerConnector(
+            URL, algorithm=int(args.algorithm))
         runtime = Runtime(wf, traces, cluster, scheduler_connector)
         runtime.setup_simulation()
         runtime.run_simulation()
