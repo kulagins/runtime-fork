@@ -149,7 +149,7 @@ in the following format:
     "finished_tasks": ["<task_1>", "task_2", ...],
     "running_tasks": [
         {
-            "task": <task_name>,
+            "name": <task_name>,
             "start_time": <start_time>,
             "memory": <memory>
         },
