@@ -42,7 +42,10 @@ if __name__ == '__main__':
                         action='store_true', default=False)
     parser.add_argument('-w', '--workflow', default=None)
     parser.add_argument('-a', '--algorithm', default='3')
+    parser.add_argument('-m', '--machine', action='append')
     args = parser.parse_args(sys.argv[1:])
+    if args.machine is None:
+        args.machine = ['300:3200:5']
     # load workflow (i.e. list of task instances) from traces
     if args.interactive:
         workflow, inputsize = get_wf()
@@ -55,7 +58,18 @@ if __name__ == '__main__':
     tasks = get_workflow(workflow, inputsize)
     # setup and start simulation
     simulation = Simulation()
-    machines = {id: Machine(id, 300, int(32e9)) for id in range(6)}
+    machines = {}
+    id = 0
+    for m in args.machine:
+        m = m.split(':')
+        speed = m[0]
+        memory = m[1]
+        count = 1
+        if len(m) == 3:
+            count = int(m[2])
+        for _ in range(count):
+            machines[id] = Machine(id, int(speed), int(memory)*int(1e6))
+            id += 1
     cluster = Cluster(simulation, machines)
     scheduler_connector = SchedulerConnector(URL, int(args.algorithm))
     runtime = Runtime(workflow, tasks, simulation,

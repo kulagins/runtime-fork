@@ -29,6 +29,19 @@ pip install -r requirements.txt
 Assuming that the scheduler (not part of this repository) is running, you can
 run a simulation with `python -m gear -i` from within the repository.
 
+Alternatively the workflow and workflow input size can be specified via
+`-w <workflow>:<input_size>`.
+
+The cluster can be changed by specifing machines with
+`-m <speed>:<memory in MiB>:<count>`. For example the following command line
+would simulate the workflow atacseq with an input size of 2223941232 bytes on
+a cluster with three machines with a speed of 300 and 32GiB memory and two
+machines with a speed of 400 and 64GiB memory.
+
+`python -m gear -w atacseq:2223941232 -m 300:3200:3 -m 400:6400:2`
+
+For now available workflow input sizes can only be listed in interactive mode.
+
 ## Architecture
 
 The simulation is built around the main event queue component. An event in the
