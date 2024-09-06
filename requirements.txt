@@ -1,6 +1,4 @@
 pandas
+numpy
 networkx
-pydot
-scipy
 requests
-graphviz

@@ -4,3 +4,7 @@ class TaskNotReadyException(Exception):
 
 class InsufficientMemoryException(Exception):
     pass
+
+
+class MachineInUseException(Exception):
+    pass

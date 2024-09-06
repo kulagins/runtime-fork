@@ -11,5 +11,6 @@ TRACE_HEADER = {
     'task':         'string',
     'machine':      'string',
     'time':         'int64',
+    'memory':       'int64',
 }
 URL = 'http://localhost:9900'

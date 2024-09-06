@@ -29,6 +29,37 @@ pip install -r requirements.txt
 Assuming that the scheduler (not part of this repository) is running, you can
 run a simulation with `python -m gear -i` from within the repository.
 
+## Architecture
+
+The simulation is built around the main event queue component. An event in the
+simulation is just a function associated with a time and some data. Events can
+be added to the event queue. A call to next_event() executes the next event.
+
+Running the simulation involves the following:
+
+ - first a workflow is chosen
+ - loading the workflow from the traces gives the simulation a list of tasks
+   to execute
+ - the simulation object is created
+ - a cluster object is created from a list of machines and the cluster object
+   receives a reference to the simulation so it can register its events
+ - the scheduler connector object is created. The scheduler connector talks
+   via the REST API to the dynamic scheduler
+ - the runtime is instantiated with references to the tasks, cluster, scheduler
+   connector and simulation
+ - the runtime starts the workflow by requesting a schedule from the scheduler
+   connector and adding all start task events to the event queue
+ - the main simulation loop keeps executing events until the workflow is
+   finished
+ - once the workflow is finished the logs are exported to a file
+
+The main events are start and finish task events. The start task event calls
+the start task function in the runtime which in turn tells the cluster to start
+the given task. If that is succesful the cluster registers a finish task event
+which calls the cluster to free the resources, which in turn calls back to the
+runtime to update the task states. If the cluster cannot start a task an
+exception is raised and the runtime requests an updated schedule.
+
 ## Simulation-Scheduler API
 
 The simulated runtime and scheduler communicate via a REST API. The scheduler
@@ -53,28 +84,24 @@ transmitted as a single json of the following format:
     "algorithm": <algorithm_number>,
     "workflow": {
         "name": "<workflow_name>",
-        "tasks": {
-            "<task_name>": {
-                "time_predicted": {
-                    "<node_1>": <time_predicted>,
-                    ...
-                },
-                "memory_predicted": {
-                    "<node_1>": <memory_predicted>,
-                    ...
-                }
+        "tasks": [
+            {
+                "name": "<task_name",
+                "work": "<work_predicted>",
+                "memory": "<memory_predicted>"
             },
             ...
-        },
+        ]
     },
     "cluster": {
-        "machines": {
-            "<machine_name>": {
-                "memory": <memory>
+        "machines": [
+            {
+                "id": <id>,
+                "memory": <memory>,
                 "speed": <speed>
             },
             ...
-        }
+        ]
     }
 }
 ```
@@ -85,13 +112,14 @@ following format:
 ```
 {
     "id": <workflow_id>,
-    "schedule": {
-        "<task_name">: {
+    "schedule": [
+        {
+            "task": <task_name>,
             "start": <start_time>,
             "machine": <machine>
         },
         ...
-    }
+    ]
 }
 ```
 
@@ -104,14 +132,16 @@ in the following format:
 
 ```
 {
+    "time": <time>,
     "finished_tasks": ["<task_1>", "task_2", ...],
-    "running_tasks": {
-        "<task_3": {
+    "running_tasks": [
+        {
+            "task": <task_name>,
             "start_time": <start_time>,
-            "memory": <memory>,
+            "memory": <memory>
         },
         ...
-    }
+    ]
 }
 ```
 
@@ -120,12 +150,13 @@ the following format:
 
 ```
 {
-    "schedule": {
-        "<task_name">: {
+    "schedule": [
+        {
+            "task": <task_name>,
             "start": <start_time>,
             "machine": <machine>
         },
         ...
-    }
+    ]
 }
 ```

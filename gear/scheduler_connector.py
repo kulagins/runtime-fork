@@ -3,16 +3,13 @@ import requests
 
 
 class SchedulerConnector:
-    # TODO make algorithm configurable via cli
     def __init__(self, url, algorithm):
         self.url = url
         self.algorithm = algorithm
         self.id = None
 
     def register_wf(self, wf_name, task_data, cluster_data):
-        if self.id is not None:
-            # TODO handle error
-            assert False
+        assert self.id is None
         data = {
             'algorithm': self.algorithm,
             'workflow': {
@@ -23,11 +20,11 @@ class SchedulerConnector:
                 'machines': cluster_data,
             },
         }
-        print(data['algorithm'])
+        print(data)
         try:
             r = requests.post(f'{self.url}/wf/new', json=data, timeout=1)
         except requests.ConnectionError:
-            print('error connecting to scheduler', file=sys.stderr)
+            print('Error connecting to scheduler.', file=sys.stderr)
             exit(-1)
         if not r.status_code == 200:
             print('Unable to register workflow. Server returned:', file=sys.stderr)
@@ -37,8 +34,9 @@ class SchedulerConnector:
         self.id = j['id']
         return j['schedule']
 
-    def update_wf(self, finished_tasks, running_tasks):
+    def update_wf(self, time, finished_tasks, running_tasks):
         data = {
+            'time': time,
             'finished_tasks': finished_tasks,
             'running_tasks': running_tasks,
         }
