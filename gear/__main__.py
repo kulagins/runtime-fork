@@ -43,6 +43,8 @@ if __name__ == '__main__':
     parser.add_argument('-w', '--workflow', default=None)
     parser.add_argument('-a', '--algorithm', default='3')
     parser.add_argument('-m', '--machine', action='append')
+    parser.add_argument('-e', '--add-error',
+                        action='store_true', default=False)
     args = parser.parse_args(sys.argv[1:])
     if args.machine is None:
         args.machine = ['300:3200:5']
@@ -73,7 +75,7 @@ if __name__ == '__main__':
     cluster = Cluster(simulation, machines)
     scheduler_connector = SchedulerConnector(URL, int(args.algorithm))
     runtime = Runtime(workflow, tasks, simulation,
-                      cluster, scheduler_connector)
+                      cluster, scheduler_connector, args.add_error)
     runtime.start_workflow()
     while runtime.state is WorkflowState.RUNNING:
         simulation.next_event()

@@ -17,7 +17,7 @@ class WorkflowState(Enum):
 
 
 class Runtime:
-    def __init__(self, wf_name, tasks, simulation, cluster, scheduler_connector):
+    def __init__(self, wf_name, tasks, simulation, cluster, scheduler_connector, add_error):
         self.wf_name = wf_name
         self.tasks = tasks
         self.simulation = simulation
@@ -26,13 +26,18 @@ class Runtime:
         self.cluster.register_task_finish_cb(self.operate)
         self.state = WorkflowState.CREATED
         self.task_fails = []
+        self.add_error = add_error
 
     def start_workflow(self):
+        task_data = [{'name': t.name, 'work': t.work, 'memory': t.memory}
+                     for t in self.tasks.values()]
+        if self.add_error:
+            task_data = [{'name': t.name, 'work': t.work_predicted, 'memory': t.memory_predicted}
+                         for t in self.tasks.values()]
+        print(task_data)
         schedule = self.scheduler_connector.register_wf(
             self.wf_name,
-            [{'name': t.name, 'work': t.work, 'memory': t.memory}
-                for t in self.tasks.values()],
-            # self.wf_instance.get_task_predictions(),
+            task_data,
             self.cluster.get_cluster_info(),
         )
         self.load_schedule(schedule)

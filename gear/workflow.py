@@ -1,4 +1,5 @@
 from enum import Enum, auto
+from scipy import stats
 
 
 class TaskState(Enum):
@@ -8,6 +9,10 @@ class TaskState(Enum):
     RUNNING = auto()
     DONE = auto()
     # FAILED = auto()
+
+
+def predict(value):
+    return stats.norm(loc=value, scale=0.1*value).rvs()
 
 
 class Task:
@@ -25,7 +30,9 @@ class Task:
         self.name = name
         self.parents = parents
         self.work = work
+        self.work_predicted = predict(work)
         self.memory = memory
+        self.memory_predicted = predict(memory)
         self.machine = None
         self.start_time = None
         self.finish_time = None
