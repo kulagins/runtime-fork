@@ -146,6 +146,7 @@ in the following format:
 ```
 {
     "time": <time>,
+    "reason": "<reason>",
     "finished_tasks": ["<task_1>", "task_2", ...],
     "running_tasks": [
         {

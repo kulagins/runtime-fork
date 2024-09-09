@@ -51,9 +51,10 @@ class Runtime:
             self.simulation.reset_queue(tag='schedule')
             schedule = self.scheduler_connector.update_wf(
                 self.simulation.time,
+                type(e).__name__,
                 [t.name for t in self.tasks.values()],
                 [{'name': t.name, 'start': t.start_time, 'machine': t.machine}
-                 for t in self.tasks.values()]
+                 for t in self.tasks.values() if t.state == TaskState.RUNNING]
             )
             self.load_schedule(schedule)
 

@@ -34,9 +34,10 @@ class SchedulerConnector:
         self.id = j['id']
         return j['schedule']
 
-    def update_wf(self, time, finished_tasks, running_tasks):
+    def update_wf(self, time, reason, finished_tasks, running_tasks):
         data = {
             'time': time,
+            'reason': reason,
             'finished_tasks': finished_tasks,
             'running_tasks': running_tasks,
         }
