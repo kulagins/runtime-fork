@@ -52,7 +52,7 @@ class Cluster:
         machine.in_use = False
         task.finish_time = self.simulation.time
         task.state = TaskState.DONE
-        self.task_finish_cb(task)
+        self.task_finish_cb()
 
     def register_task_finish_cb(self, callback):
         self.task_finish_cb = callback

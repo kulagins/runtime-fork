@@ -20,7 +20,6 @@ class SchedulerConnector:
                 'machines': cluster_data,
             },
         }
-        print(data)
         try:
             r = requests.post(f'{self.url}/wf/new', json=data, timeout=1)
         except requests.ConnectionError:

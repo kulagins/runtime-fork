@@ -79,7 +79,7 @@ if __name__ == '__main__':
         simulation.next_event()
     # save logs
     task_data = []
-    for task in tasks:
+    for task in tasks.values():
         t = {
             'name': task.name,
             'machine': task.machine,
@@ -95,5 +95,5 @@ if __name__ == '__main__':
         'failed': runtime.task_fails,
     }
     h = hex(hash('seed')).split('x')[1][:7]
-    with open(f'{workflow}-{inputsize}-{h}.log', 'r') as file:
-        file.write(json.dumps(save_data))
+    with open(f'{workflow}-{inputsize}-{h}.log', 'w') as file:
+        file.write(json.dumps(save_data, indent=3))

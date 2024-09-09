@@ -37,6 +37,7 @@ class Runtime:
         )
         self.load_schedule(schedule)
         self.state = WorkflowState.RUNNING
+        self.operate()
 
     def start_task(self, task):
         try:
@@ -52,7 +53,7 @@ class Runtime:
             schedule = self.scheduler_connector.update_wf(
                 self.simulation.time,
                 type(e).__name__,
-                [t.name for t in self.tasks.values()],
+                [t.name for t in self.tasks.values() if t.state == TaskState.DONE],
                 [{'name': t.name, 'start': t.start_time, 'machine': t.machine}
                  for t in self.tasks.values() if t.state == TaskState.RUNNING]
             )
@@ -70,8 +71,9 @@ class Runtime:
             ))
 
     def operate(self):
-        if len(self.get_tasks(TaskState.DONE)) == len(self.get_tasks):
-            self.state == WorkflowState.DONE
+        if len(self.get_tasks(TaskState.DONE)) == len(self.get_tasks()):
+            self.state = WorkflowState.DONE
+            return
         for task in self.get_tasks(TaskState.BLOCKED):
             task.state = TaskState.READY
             for parent in task.parents:

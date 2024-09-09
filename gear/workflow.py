@@ -30,3 +30,6 @@ class Task:
         self.start_time = None
         self.finish_time = None
         self.state = TaskState.BLOCKED
+
+    def __str__(self):
+        return self.name
