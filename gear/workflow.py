@@ -12,7 +12,11 @@ class TaskState(Enum):
 
 
 def predict(value):
-    return stats.norm(loc=value, scale=0.1*value).rvs()
+    rvs = stats.norm(loc=value, scale=0.1 * value).rvs()
+    #if(abs(rvs-value)<0.1 * value):
+   #     return value
+   # else:
+    return rvs
 
 
 class Task:
@@ -26,14 +30,17 @@ class Task:
     We do not make a distinction between abstract task and task instance.
     '''
 
-    def __init__(self, name, parents, work, memory):
+    def __init__(self, name, parents, work, memory, wchar, taskinputsize):
         self.name = name
         self.parents = parents
         self.work = work
         self.work_predicted = predict(work)
         self.memory = memory
         self.memory_predicted = predict(memory)
+        self.wchar = wchar
+        self.taskinputsize = taskinputsize
         self.machine = None
+        self.machineSpeed=-1
         self.start_time = None
         self.finish_time = None
         self.state = TaskState.BLOCKED

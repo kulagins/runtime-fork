@@ -1,0 +1,127 @@
+{
+   "workflow": "methylseq",
+   "makespan": 12507719.36130356,
+   "tasks": [
+      {
+         "name": "fastqc",
+         "machine": 6,
+         "start": 0.0,
+         "finish": 711987.6875,
+         "expected runtime on this machine ": "639671.5032695897",
+         "actual runtime on this machine ": "711987.6875",
+         "expected memory usage ": 400557059.1739848,
+         "actual memory usage": 356361776
+      },
+      {
+         "name": "multiqc",
+         "machine": 30,
+         "start": 12507707.58005356,
+         "finish": 12507719.36130356,
+         "expected runtime on this machine ": "11.33818476319319",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 52129841.16326511,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "trim_galore",
+         "machine": 30,
+         "start": 0.0,
+         "finish": 6970247.78125,
+         "expected runtime on this machine ": "6990697.838768333",
+         "actual runtime on this machine ": "6970247.78125",
+         "expected memory usage ": 194711023.58508968,
+         "actual memory usage": 186739248
+      },
+      {
+         "name": "bismark_align",
+         "machine": 30,
+         "start": 6970247.78125,
+         "finish": 12364511.5,
+         "expected runtime on this machine ": "5402746.705047012",
+         "actual runtime on this machine ": "5394263.71875",
+         "expected memory usage ": 72976224.4334914,
+         "actual memory usage": 70686768
+      },
+      {
+         "name": "get_software_versions",
+         "machine": 8,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "10.756720771892393",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 43032138.14815493,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bismark_deduplicate",
+         "machine": 30,
+         "start": 12372994.486297011,
+         "finish": 12375814.892547011,
+         "expected runtime on this machine ": "3303.869205211695",
+         "actual runtime on this machine ": "2820.40625",
+         "expected memory usage ": 27178549.072032094,
+         "actual memory usage": 24845872
+      },
+      {
+         "name": "preseq",
+         "machine": 7,
+         "start": 12372994.586297011,
+         "finish": 12373006.367547011,
+         "expected runtime on this machine ": "11.442659361768877",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 58438790.45517125,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bismark_report",
+         "machine": 30,
+         "start": 12497173.923797011,
+         "finish": 12507707.580047011,
+         "expected runtime on this machine ": "11861.33410016102",
+         "actual runtime on this machine ": "10533.65625",
+         "expected memory usage ": 42203692.6164078,
+         "actual memory usage": 39271984
+      },
+      {
+         "name": "bismark_summary",
+         "machine": 6,
+         "start": 12497173.923910666,
+         "finish": 12497185.705160666,
+         "expected runtime on this machine ": "13.629783308915574",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 52866319.18392229,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bismark_methxtract",
+         "machine": 30,
+         "start": 12375814.892547011,
+         "finish": 12497173.923797011,
+         "expected runtime on this machine ": "118999.35485915872",
+         "actual runtime on this machine ": "121359.03125",
+         "expected memory usage ": 42849647.30772834,
+         "actual memory usage": 43948080
+      },
+      {
+         "name": "qualimap",
+         "machine": 6,
+         "start": 12375909.668647012,
+         "finish": 12411309.762397012,
+         "expected runtime on this machine ": "34948.211933089544",
+         "actual runtime on this machine ": "35400.09375",
+         "expected memory usage ": 101165594.36090769,
+         "actual memory usage": 108321328
+      },
+      {
+         "name": "output_documentation",
+         "machine": 9,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "13.985075246854493",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 44626335.11781715,
+         "actual memory usage": 50000000
+      }
+   ],
+   "failed": []
+}

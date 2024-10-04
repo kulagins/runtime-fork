@@ -32,10 +32,12 @@ class Simulation:
 
     def next_event(self):
         event = heapq.heappop(self.queue)
+        if self.time> event.time:
+            print("event "+event.data.name+ "time "+event.time+"vs current time "+self.time)
         assert event.time >= self.time
         self.time = event.time
         # print(f'{event.time}: {event.callback.__name__} {event.data}')
-        event.callback(event.data)
+        event.callback(event.data, event.tags)
 
     def add_event(self, event):
         assert type(event) is Event
@@ -51,3 +53,7 @@ class Simulation:
             return
         self.queue = [e for e in self.queue if tag not in e.tags]
         heapq.heapify(self.queue)
+
+    def find_event_by_name(self, blockingtask_name):
+        found_obj = next((obj for obj in self.queue if obj.data.name == blockingtask_name), None)
+        return found_obj

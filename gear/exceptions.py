@@ -8,3 +8,6 @@ class InsufficientMemoryException(Exception):
 
 class MachineInUseException(Exception):
     pass
+
+class TookMuchLess(Exception):
+    pass

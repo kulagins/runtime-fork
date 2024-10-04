@@ -1,0 +1,732 @@
+""{
+    "algorithm": 1,
+    "workflow": {
+        "name": "atacseq",
+        "tasks": {
+            "bwa_mem": {
+                "time_predicted": {
+                    "asok01": 658131,
+                    "asok02": 554860,
+                    "c2": 383624,
+                    "n1": 557355,
+                    "n2": 471334,
+                    "local": 0
+                },
+                "memory_predicted": {
+                    "asok01": 7703410639,
+                    "asok02": 8116760469,
+                    "c2": 7798732200,
+                    "n1": 7090719673,
+                    "n2": 6758580479,
+                    "local": 55911284
+                }
+            },
+            "fastqc": {
+                "time_predicted": {
+                    "asok01": 104769,
+                    "asok02": 110404,
+                    "c2": 51033,
+                    "n1": 78853,
+                    "n2": 58236,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 1199093523,
+                    "asok02": 870768029,
+                    "c2": 1106383688,
+                    "n1": 1187680269,
+                    "n2": 942806893,
+                    "local": 45198210
+                }
+            },
+            "merged_lib_ataqv": {
+                "time_predicted": {
+                    "asok01": 47515,
+                    "asok02": 64197,
+                    "c2": 29347,
+                    "n1": 53800,
+                    "n2": 32105,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 72660897,
+                    "asok02": 87735695,
+                    "c2": 72477110,
+                    "n1": 70859461,
+                    "n2": 87569953,
+                    "local": 41338383
+                }
+            },
+            "merged_lib_bam": {
+                "time_predicted": {
+                    "asok01": 386919,
+                    "asok02": 442712,
+                    "c2": 188990,
+                    "n1": 294818,
+                    "n2": 240488,
+                    "local": 0
+                },
+                "memory_predicted": {
+                    "asok01": 8083652338,
+                    "asok02": 7181873555,
+                    "c2": 7956152620,
+                    "n1": 9239481572,
+                    "n2": 8328485344,
+                    "local": 47910286
+                }
+            },
+            "merged_lib_bam_filter": {
+                "time_predicted": {
+                    "asok01": 245650,
+                    "asok02": 221773,
+                    "c2": 141518,
+                    "n1": 200798,
+                    "n2": 143759,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 3080527646,
+                    "asok02": 2619015132,
+                    "c2": 2388076931,
+                    "n1": 2868782117,
+                    "n2": 3101671097,
+                    "local": 52036393
+                }
+            },
+            "merged_lib_bam_remove_orphan": {
+                "time_predicted": {
+                    "asok01": 121516,
+                    "asok02": 141959,
+                    "c2": 69343,
+                    "n1": 104277,
+                    "n2": 77733,
+                    "local": 0
+                },
+                "memory_predicted": {
+                    "asok01": 2927729655,
+                    "asok02": 2410966878,
+                    "c2": 2630299704,
+                    "n1": 2570456515,
+                    "n2": 2170109318,
+                    "local": 65398201
+                }
+            },
+            "merged_lib_bigwig": {
+                "time_predicted": {
+                    "asok01": 88752,
+                    "asok02": 116628,
+                    "c2": 60797,
+                    "n1": 80146,
+                    "n2": 61712,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 1943927571,
+                    "asok02": 2193953454,
+                    "c2": 1945564564,
+                    "n1": 2126698445,
+                    "n2": 1997933018,
+                    "local": 46309311
+                }
+            },
+            "merged_lib_macs2": {
+                "time_predicted": {
+                    "asok01": 141379,
+                    "asok02": 136244,
+                    "c2": 57510,
+                    "n1": 134733,
+                    "n2": 75349,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 191468470,
+                    "asok02": 225074141,
+                    "c2": 208682761,
+                    "n1": 235322522,
+                    "n2": 227978154,
+                    "local": 51790566
+                }
+            },
+            "merged_lib_macs2_annotate": {
+                "time_predicted": {
+                    "asok01": 169500,
+                    "asok02": 164672,
+                    "c2": 61862,
+                    "n1": 150454,
+                    "n2": 83278,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 1334084081,
+                    "asok02": 1445227991,
+                    "c2": 1305845769,
+                    "n1": 1267373077,
+                    "n2": 1358429310,
+                    "local": 55630098
+                }
+            },
+            "merged_lib_picard_metrics": {
+                "time_predicted": {
+                    "asok01": 115946,
+                    "asok02": 101183,
+                    "c2": 67764,
+                    "n1": 82141,
+                    "n2": 81587,
+                    "local": 0
+                },
+                "memory_predicted": {
+                    "asok01": 992259078,
+                    "asok02": 1398149579,
+                    "c2": 1084850450,
+                    "n1": 1001258355,
+                    "n2": 1100082458,
+                    "local": 48847548
+                }
+            },
+            "merged_lib_plotfingerprint": {
+                "time_predicted": {
+                    "asok01": 67320,
+                    "asok02": 90251,
+                    "c2": 49499,
+                    "n1": 66456,
+                    "n2": 50456,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 1104740835,
+                    "asok02": 1131330748,
+                    "c2": 870149730,
+                    "n1": 1015818623,
+                    "n2": 737595579,
+                    "local": 51580155
+                }
+            },
+            "merged_lib_plotprofile": {
+                "time_predicted": {
+                    "asok01": 600130,
+                    "asok02": 765676,
+                    "c2": 403836,
+                    "n1": 690073,
+                    "n2": 445941,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 2087552284,
+                    "asok02": 2155656261,
+                    "c2": 2489798626,
+                    "n1": 2283615756,
+                    "n2": 1668191008,
+                    "local": 47278325
+                }
+            },
+            "sort_bam": {
+                "time_predicted": {
+                    "asok01": 81037,
+                    "asok02": 71781,
+                    "c2": 50585,
+                    "n1": 87909,
+                    "n2": 42971,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 3150320016,
+                    "asok02": 3768790912,
+                    "c2": 3776919699,
+                    "n1": 4950703451,
+                    "n2": 4015173562,
+                    "local": 56427843
+                }
+            },
+            "trimgalore": {
+                "time_predicted": {
+                    "asok01": 256488,
+                    "asok02": 234459,
+                    "c2": 141536,
+                    "n1": 241073,
+                    "n2": 165998,
+                    "local": 1
+                },
+                "memory_predicted": {
+                    "asok01": 1227199269,
+                    "asok02": 1216809781,
+                    "c2": 1257989652,
+                    "n1": 933499868,
+                    "n2": 904949179,
+                    "local": 49757775
+                }
+            },
+            "check_design": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 1,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 51797634,
+                    "asok02": 47095004,
+                    "c2": 48000342,
+                    "local": 56702561,
+                    "n1": 53383497,
+                    "n2": 52984537
+                }
+            },
+            "multiqc": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 0,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 52893829,
+                    "asok02": 45246716,
+                    "c2": 52286265,
+                    "local": 53893295,
+                    "n1": 50392969,
+                    "n2": 44746997
+                }
+            },
+            "bwa_index": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 1,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 44071559,
+                    "asok02": 53087824,
+                    "c2": 59436287,
+                    "local": 49087158,
+                    "n1": 42747296,
+                    "n2": 43904703
+                }
+            },
+            "make_gene_bed": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 1,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 49837405,
+                    "asok02": 47199357,
+                    "c2": 43520739,
+                    "local": 59808430,
+                    "n1": 50767417,
+                    "n2": 54606061
+                }
+            },
+            "make_tss_bed": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 0,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 50136054,
+                    "asok02": 59309077,
+                    "c2": 41208186,
+                    "local": 54712884,
+                    "n1": 48593244,
+                    "n2": 42610861
+                }
+            },
+            "merged_lib_ataqv_mkarv": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 44744315,
+                    "asok02": 47095395,
+                    "c2": 45715889,
+                    "local": 56422125,
+                    "n1": 54895307,
+                    "n2": 45816874
+                }
+            },
+            "make_genome_filter": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 0,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 53498429,
+                    "asok02": 51538259,
+                    "c2": 58248929,
+                    "local": 51634457,
+                    "n1": 52084741,
+                    "n2": 49892633
+                }
+            },
+            "merged_rep_bigwig": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 47388876,
+                    "asok02": 54526680,
+                    "c2": 48251843,
+                    "local": 58126556,
+                    "n1": 51875418,
+                    "n2": 43119127
+                }
+            },
+            "merged_lib_preseq": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 52585395,
+                    "asok02": 51900503,
+                    "c2": 43533079,
+                    "local": 44948339,
+                    "n1": 45032143,
+                    "n2": 50364184
+                }
+            },
+            "merged_lib_consensus_counts": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 0,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 45842888,
+                    "asok02": 46253495,
+                    "c2": 58253365,
+                    "local": 44581555,
+                    "n1": 47986910,
+                    "n2": 44912944
+                }
+            },
+            "merged_rep_bam": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 0,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 47627478,
+                    "asok02": 49933151,
+                    "c2": 45058126,
+                    "local": 55674337,
+                    "n1": 39745532,
+                    "n2": 55390627
+                }
+            },
+            "merged_rep_consensus_counts": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 50435233,
+                    "asok02": 53717336,
+                    "c2": 39790399,
+                    "local": 41343202,
+                    "n1": 55133112,
+                    "n2": 50116563
+                }
+            },
+            "igv": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 0,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 57850968,
+                    "asok02": 53065219,
+                    "c2": 49249806,
+                    "local": 48576596,
+                    "n1": 42511022,
+                    "n2": 56036110
+                }
+            },
+            "merged_lib_macs2_qc": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 50829700,
+                    "asok02": 47119102,
+                    "c2": 57611038,
+                    "local": 51203688,
+                    "n1": 52348200,
+                    "n2": 42776307
+                }
+            },
+            "merged_lib_consensus": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 52674279,
+                    "asok02": 50844158,
+                    "c2": 50839221,
+                    "local": 48553494,
+                    "n1": 48982643,
+                    "n2": 54165052
+                }
+            },
+            "merged_lib_consensus_annotate": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 0,
+                    "c2": 0,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 43910020,
+                    "asok02": 51691908,
+                    "c2": 43462162,
+                    "local": 49550067,
+                    "n1": 50862707,
+                    "n2": 47206623
+                }
+            },
+            "merged_lib_consensus_deseq2": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 0,
+                    "n1": 1,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 47945301,
+                    "asok02": 59834367,
+                    "c2": 59125293,
+                    "local": 49257440,
+                    "n1": 55162558,
+                    "n2": 40381343
+                }
+            },
+            "merged_rep_macs2": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 50322809,
+                    "asok02": 52269794,
+                    "c2": 55072983,
+                    "local": 54396027,
+                    "n1": 59894709,
+                    "n2": 41823578
+                }
+            },
+            "merged_rep_macs2_annotate": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 50878944,
+                    "asok02": 46292166,
+                    "c2": 48962009,
+                    "local": 46316577,
+                    "n1": 55406371,
+                    "n2": 48268532
+                }
+            },
+            "merged_rep_macs2_qc": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 0,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 47605008,
+                    "asok02": 57655922,
+                    "c2": 54899874,
+                    "local": 44043050,
+                    "n1": 48077367,
+                    "n2": 50795441
+                }
+            },
+            "merged_rep_consensus": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 0,
+                    "local": 1,
+                    "n1": 1,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 45880193,
+                    "asok02": 50262229,
+                    "c2": 49425213,
+                    "local": 45931257,
+                    "n1": 48118167,
+                    "n2": 48352050
+                }
+            },
+            "merged_rep_consensus_annotate": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 0,
+                    "n1": 0,
+                    "n2": 0
+                },
+                "memory_predicted": {
+                    "asok01": 51091568,
+                    "asok02": 46571417,
+                    "c2": 51507223,
+                    "local": 53283336,
+                    "n1": 44001706,
+                    "n2": 49185899
+                }
+            },
+            "merged_rep_consensus_deseq2": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 1,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 49892618,
+                    "asok02": 48011307,
+                    "c2": 50089998,
+                    "local": 51769262,
+                    "n1": 52329821,
+                    "n2": 44414374
+                }
+            },
+            "get_software_versions": {
+                "time_predicted": {
+                    "asok01": 1,
+                    "asok02": 1,
+                    "c2": 1,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 55646034,
+                    "asok02": 43347463,
+                    "c2": 49946840,
+                    "local": 55209636,
+                    "n1": 48183889,
+                    "n2": 57187717
+                }
+            },
+            "output_documentation": {
+                "time_predicted": {
+                    "asok01": 0,
+                    "asok02": 0,
+                    "c2": 0,
+                    "local": 1,
+                    "n1": 0,
+                    "n2": 1
+                },
+                "memory_predicted": {
+                    "asok01": 47234471,
+                    "asok02": 54805275,
+                    "c2": 42830789,
+                    "local": 45343817,
+                    "n1": 51803021,
+                    "n2": 53496638
+                }
+            }
+        }
+    },
+    "cluster": {
+        "machines": {
+            "local": {
+                "memory": 16000000000
+            },
+            "a1": {
+                "memory": 32000000000
+            },
+            "a2": {
+                "memory": 64000000000
+            },
+            "n1": {
+                "memory": 16000000000
+            },
+            "n2": {
+                "memory": 8000000000
+            },
+            "c2": {
+                "memory": 192000000000
+            }
+        }
+    }
+}""

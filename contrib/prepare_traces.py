@@ -48,7 +48,7 @@ if __name__ == '__main__':
         'peakrss': 'memory',
     }
     INDEX_COLUMNS = ['workflow', 'inputsize', 'task', 'machine']
-    DATA_COLUMNS = ['time', 'memory']
+    DATA_COLUMNS = ['time', 'memory','wchar', 'taskinputsize']
     df = df.rename(columns=RENAME_COLUMNS)
     print(df.columns)
     df = df[INDEX_COLUMNS + DATA_COLUMNS]

@@ -1,0 +1,280 @@
+{
+   "workflow": "atacseq",
+   "makespan": 1416653.7849999997,
+   "tasks": [
+      {
+         "name": "check_design",
+         "machine": 3,
+         "start": 0.0,
+         "finish": 0.9425,
+         "memory": 50000000
+      },
+      {
+         "name": "trimgalore",
+         "machine": 3,
+         "start": 0.9425,
+         "finish": 140659.4525,
+         "memory": 958078314
+      },
+      {
+         "name": "fastqc",
+         "machine": 1,
+         "start": 1.9425,
+         "finish": 71843.42916666667,
+         "memory": 881440106
+      },
+      {
+         "name": "bwa_mem",
+         "machine": 3,
+         "start": 140659.4525,
+         "finish": 516745.6725,
+         "memory": 6329503765
+      },
+      {
+         "name": "multiqc",
+         "machine": 3,
+         "start": 1416652.8424999998,
+         "finish": 1416653.7849999997,
+         "memory": 50000000
+      },
+      {
+         "name": "bwa_index",
+         "machine": 4,
+         "start": 0.0,
+         "finish": 0.9425,
+         "memory": 50000000
+      },
+      {
+         "name": "make_gene_bed",
+         "machine": 1,
+         "start": 0.0,
+         "finish": 1.2566666666666666,
+         "memory": 50000000
+      },
+      {
+         "name": "make_tss_bed",
+         "machine": 2,
+         "start": 2.256666666666667,
+         "finish": 3.5133333333333336,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_plotprofile",
+         "machine": 3,
+         "start": 1015137.8474999999,
+         "finish": 1416652.8424999998,
+         "memory": 1804687381
+      },
+      {
+         "name": "merged_lib_ataqv",
+         "machine": 1,
+         "start": 1028953.945,
+         "finish": 1071348.925,
+         "memory": 75805376
+      },
+      {
+         "name": "merged_lib_ataqv_mkarv",
+         "machine": 1,
+         "start": 1071348.925,
+         "finish": 1071350.1816666666,
+         "memory": 50000000
+      },
+      {
+         "name": "make_genome_filter",
+         "machine": 0,
+         "start": 0.0,
+         "finish": 1.2566666666666666,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_bam_filter",
+         "machine": 3,
+         "start": 761903.095,
+         "finish": 891178.565,
+         "memory": 2307643413
+      },
+      {
+         "name": "merged_lib_bigwig",
+         "machine": 3,
+         "start": 960786.8975,
+         "finish": 1015137.8474999999,
+         "memory": 1686147093
+      },
+      {
+         "name": "merged_rep_bigwig",
+         "machine": 2,
+         "start": 1028960.2283333335,
+         "finish": 1028961.4850000002,
+         "memory": 50000000
+      },
+      {
+         "name": "sort_bam",
+         "machine": 3,
+         "start": 516745.6725,
+         "finish": 563303.8225,
+         "memory": 3320700949
+      },
+      {
+         "name": "merged_lib_bam",
+         "machine": 3,
+         "start": 563303.8225,
+         "finish": 761903.095,
+         "memory": 6785269098
+      },
+      {
+         "name": "merged_lib_preseq",
+         "machine": 2,
+         "start": 1028961.4850000002,
+         "finish": 1028962.7416666669,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_bam_remove_orphan",
+         "machine": 3,
+         "start": 891178.565,
+         "finish": 960786.8975,
+         "memory": 2270248981
+      },
+      {
+         "name": "merged_lib_picard_metrics",
+         "machine": 0,
+         "start": 960787.8975,
+         "finish": 1044266.1008333333,
+         "memory": 975631040
+      },
+      {
+         "name": "merged_lib_plotfingerprint",
+         "machine": 1,
+         "start": 960787.8975,
+         "finish": 1023059.0808333333,
+         "memory": 848400405
+      },
+      {
+         "name": "merged_lib_macs2",
+         "machine": 4,
+         "start": 960787.8975,
+         "finish": 1028952.945,
+         "memory": 190307008
+      },
+      {
+         "name": "merged_lib_consensus_counts",
+         "machine": 2,
+         "start": 1028955.2016666667,
+         "finish": 1028956.4583333334,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_bam",
+         "machine": 2,
+         "start": 960787.8975,
+         "finish": 960789.1541666667,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_consensus_counts",
+         "machine": 2,
+         "start": 1028957.7150000001,
+         "finish": 1028958.9716666668,
+         "memory": 50000000
+      },
+      {
+         "name": "igv",
+         "machine": 2,
+         "start": 1028967.7683333338,
+         "finish": 1028969.0250000005,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_macs2_annotate",
+         "machine": 4,
+         "start": 1028952.945,
+         "finish": 1111230.6025,
+         "memory": 1113197248
+      },
+      {
+         "name": "merged_lib_macs2_qc",
+         "machine": 4,
+         "start": 1111230.6025,
+         "finish": 1111231.545,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_consensus",
+         "machine": 2,
+         "start": 1028953.945,
+         "finish": 1028955.2016666667,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_consensus_annotate",
+         "machine": 2,
+         "start": 1028966.5116666671,
+         "finish": 1028967.7683333338,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_lib_consensus_deseq2",
+         "machine": 2,
+         "start": 1028958.9716666668,
+         "finish": 1028960.2283333335,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_macs2",
+         "machine": 2,
+         "start": 960789.1541666667,
+         "finish": 960790.4108333334,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_macs2_annotate",
+         "machine": 2,
+         "start": 1028956.4583333334,
+         "finish": 1028957.7150000001,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_macs2_qc",
+         "machine": 2,
+         "start": 1028962.7416666669,
+         "finish": 1028963.9983333336,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_consensus",
+         "machine": 2,
+         "start": 960790.4108333334,
+         "finish": 960791.6675000001,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_consensus_annotate",
+         "machine": 2,
+         "start": 1028970.2816666672,
+         "finish": 1028971.5383333339,
+         "memory": 50000000
+      },
+      {
+         "name": "merged_rep_consensus_deseq2",
+         "machine": 2,
+         "start": 1028963.9983333336,
+         "finish": 1028965.2550000004,
+         "memory": 50000000
+      },
+      {
+         "name": "get_software_versions",
+         "machine": 2,
+         "start": 1028965.2550000004,
+         "finish": 1028966.5116666671,
+         "memory": 50000000
+      },
+      {
+         "name": "output_documentation",
+         "machine": 2,
+         "start": 1028969.0250000005,
+         "finish": 1028970.2816666672,
+         "memory": 50000000
+      }
+   ],
+   "failed": []
+}

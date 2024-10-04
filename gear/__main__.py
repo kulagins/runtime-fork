@@ -23,6 +23,20 @@ def choose_from_list(choices):
             print('invalid choice')
     return choice
 
+def find_set(d):
+    """Recursively search for sets in a dictionary."""
+    if isinstance(d, dict):
+        for key, value in d.items():
+            if isinstance(value, set):
+                print(f"Found a set at key: {key}")
+            elif isinstance(value, (dict, list)):
+                find_set(value)
+    elif isinstance(d, list):
+        for item in d:
+            if isinstance(item, set):
+                print("Found a set in a list")
+            elif isinstance(item, (dict, list)):
+                find_set(item)
 
 def get_wf():
     wf_inputsizes_map = get_workflow_input_sizes()
@@ -45,9 +59,11 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--machine', action='append')
     parser.add_argument('-e', '--add-error',
                         action='store_true', default=False)
+    parser.add_argument('-p', '--port', default='9900')
     args = parser.parse_args(sys.argv[1:])
     if args.machine is None:
         args.machine = ['300:3200:5']
+    print(args)
     # load workflow (i.e. list of task instances) from traces
     if args.interactive:
         workflow, inputsize = get_wf()
@@ -57,6 +73,7 @@ if __name__ == '__main__':
     else:
         parser.print_help()
         exit(-1)
+    #workflow_short_name = workflow.split('-')
     tasks = get_workflow(workflow, inputsize)
     # setup and start simulation
     simulation = Simulation()
@@ -73,7 +90,7 @@ if __name__ == '__main__':
             machines[id] = Machine(id, int(speed), int(memory)*int(1e6))
             id += 1
     cluster = Cluster(simulation, machines)
-    scheduler_connector = SchedulerConnector(URL, int(args.algorithm))
+    scheduler_connector = SchedulerConnector(URL+args.port, int(args.algorithm))
     runtime = Runtime(workflow, tasks, simulation,
                       cluster, scheduler_connector, args.add_error)
     runtime.start_workflow()
@@ -87,7 +104,10 @@ if __name__ == '__main__':
             'machine': task.machine,
             'start': task.start_time,
             'finish': task.finish_time,
-            'memory': task.memory,
+            'expected runtime on this machine ': str(task.work_predicted/task.machineSpeed),
+            'actual runtime on this machine ': str(task.work/task.machineSpeed),
+            'expected memory usage ': task.memory_predicted,
+            'actual memory usage': task.memory
         }
         task_data.append(t)
     save_data = {
@@ -96,6 +116,11 @@ if __name__ == '__main__':
         'tasks': task_data,
         'failed': runtime.task_fails,
     }
+
+
+
     h = hex(hash('seed')).split('x')[1][:7]
+    find_set(save_data)
+    json_String = json.dumps(save_data, indent=3)
     with open(f'{workflow}-{inputsize}-{h}.log', 'w') as file:
-        file.write(json.dumps(save_data, indent=3))
+        file.write(json_String)

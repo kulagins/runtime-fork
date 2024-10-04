@@ -1,0 +1,98 @@
+{
+   "workflow": "bacass",
+   "makespan": 1214.3363570511108,
+   "tasks": [
+      {
+         "name": "\"nfcore_bacass:bacass:fastqc\"",
+         "machine": 10,
+         "start": 0.0,
+         "finish": 11.78125,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:multiqc\"",
+         "machine": 7,
+         "start": 1202.5551070511108,
+         "finish": 1214.3363570511108,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:nanoplot\"",
+         "machine": 8,
+         "start": 0.0,
+         "finish": 11.78125,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:get_software_versions\"",
+         "machine": 7,
+         "start": 1189.5955173591424,
+         "finish": 1201.3767673591424,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:pycoqc\"",
+         "machine": 9,
+         "start": 0.0,
+         "finish": 11.78125,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:skewer\"",
+         "machine": 6,
+         "start": 0.0,
+         "finish": 11.78125,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:unicycler\"",
+         "machine": 7,
+         "start": 1013.273767367361,
+         "finish": 1025.055017367361,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:kraken2\"",
+         "machine": 8,
+         "start": 513.273767367361,
+         "finish": 525.055017367361,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:quast\"",
+         "machine": 7,
+         "start": 1037.7716563120684,
+         "finish": 1049.5529063120684,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:prokka\"",
+         "machine": 7,
+         "start": 1025.7016765554877,
+         "finish": 1037.4829265554877,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:kraken2_db_preparation\"",
+         "machine": 7,
+         "start": 0.0,
+         "finish": 11.78125,
+         "memory": 50000000
+      },
+      {
+         "name": "\"nfcore_bacass:bacass:kraken2_long\"",
+         "machine": 9,
+         "start": 1011.4932483157114,
+         "finish": 1023.2744983157114,
+         "memory": 50000000
+      }
+   ],
+   "failed": [
+      {
+         "time": 11.493248315711432,
+         "task": "\"nfcore_bacass:bacass:kraken2_long\"",
+         "machine": 7,
+         "reason": "TaskNotReadyException"
+      }
+   ]
+}

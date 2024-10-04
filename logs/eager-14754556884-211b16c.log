@@ -1,0 +1,597 @@
+{
+   "workflow": "eager",
+   "makespan": 54007379.38015265,
+   "tasks": [
+      {
+         "name": "unzip_reference",
+         "machine": 6,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "11.916451977270743",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 45797689.121192776,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "makebwaindex",
+         "machine": 6,
+         "start": 11.78125,
+         "finish": 23.5625,
+         "expected runtime on this machine ": "13.468209870215084",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 54197442.09798066,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "makefastaindex",
+         "machine": 9,
+         "start": 11.88125,
+         "finish": 23.6625,
+         "expected runtime on this machine ": "13.171786924082932",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 43922012.317953266,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "makeseqdict",
+         "machine": 10,
+         "start": 11.88125,
+         "finish": 23.6625,
+         "expected runtime on this machine ": "12.20241917736339",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 50586146.58290242,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "circulargenerator",
+         "machine": 7,
+         "start": 11.88125,
+         "finish": 23.6625,
+         "expected runtime on this machine ": "13.570318672256276",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 50445799.12368744,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "mask_reference_for_pmdtools",
+         "machine": 19,
+         "start": 11.88125,
+         "finish": 43.297916666666666,
+         "expected runtime on this machine ": "29.188991205204683",
+         "actual runtime on this machine ": "31.416666666666668",
+         "expected memory usage ": 56206810.81414785,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "multivcfanalyzer",
+         "machine": 8,
+         "start": 25494662.748095363,
+         "finish": 25494674.529345363,
+         "expected runtime on this machine ": "11.548058013750188",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 50624463.694528505,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "qualimap",
+         "machine": 7,
+         "start": 25548942.84056243,
+         "finish": 25804490.55931243,
+         "expected runtime on this machine ": "250008.58031808794",
+         "actual runtime on this machine ": "255547.71875",
+         "expected memory usage ": 951805511.3512764,
+         "actual memory usage": 889763888
+      },
+      {
+         "name": "circularmapper",
+         "machine": 7,
+         "start": 5933685.640728805,
+         "finish": 5933697.421978805,
+         "expected runtime on this machine ": "12.190822755744014",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 55694746.04835086,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "damageprofiler",
+         "machine": 6,
+         "start": 25548944.206099287,
+         "finish": 26068302.643599287,
+         "expected runtime on this machine ": "520733.9586138894",
+         "actual runtime on this machine ": "519358.4375",
+         "expected memory usage ": 1227984729.209149,
+         "actual memory usage": 1251775024
+      },
+      {
+         "name": "pmdtools",
+         "machine": 34,
+         "start": 25494627.13418306,
+         "finish": 25494638.91543306,
+         "expected runtime on this machine ": "10.393036736365623",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 42614484.08287987,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "mapdamage_rescaling",
+         "machine": 32,
+         "start": 25494627.13418306,
+         "finish": 25494638.91543306,
+         "expected runtime on this machine ": "12.949360851225904",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 47485729.23232821,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "genotyping_hc",
+         "machine": 31,
+         "start": 25494650.916844524,
+         "finish": 53924399.760594524,
+         "expected runtime on this machine ": "27264185.130659584",
+         "actual runtime on this machine ": "28429748.84375",
+         "expected memory usage ": 3572991131.180641,
+         "actual memory usage": 3459945008
+      },
+      {
+         "name": "genotyping_angsd",
+         "machine": 30,
+         "start": 25494650.916845363,
+         "finish": 25494662.698095363,
+         "expected runtime on this machine ": "10.741864057243676",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 40919936.67937462,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "genotyping_freebayes",
+         "machine": 9,
+         "start": 25494650.916845363,
+         "finish": 25494662.698095363,
+         "expected runtime on this machine ": "13.02308215983397",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 39165116.361778095,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "genotyping_ug",
+         "machine": 8,
+         "start": 25494650.916845363,
+         "finish": 25494662.698095363,
+         "expected runtime on this machine ": "13.312280696321038",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 43674045.324723415,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "vcf2genome",
+         "machine": 9,
+         "start": 25494662.748095363,
+         "finish": 25494674.529345363,
+         "expected runtime on this machine ": "12.606655692427074",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 55757897.89140306,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "genotyping_pileupcaller",
+         "machine": 10,
+         "start": 25494650.916845363,
+         "finish": 25494662.698095363,
+         "expected runtime on this machine ": "12.626946968670559",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 42981474.69945569,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bcftools_stats",
+         "machine": 31,
+         "start": 53924399.760594524,
+         "finish": 54004919.979344524,
+         "expected runtime on this machine ": "82967.83830812227",
+         "actual runtime on this machine ": "80520.21875",
+         "expected memory usage ": 21643277.279927406,
+         "actual memory usage": 25356848
+      },
+      {
+         "name": "bwamem",
+         "machine": 6,
+         "start": 5933685.640728833,
+         "finish": 5933697.421978833,
+         "expected runtime on this machine ": "12.266858666787234",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48827471.60095689,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bwa",
+         "machine": 31,
+         "start": 5933685.604930177,
+         "finish": 24854231.323680177,
+         "expected runtime on this machine ": "22682832.246537127",
+         "actual runtime on this machine ": "18920545.71875",
+         "expected memory usage ": 4588021634.2127285,
+         "actual memory usage": 4277455408
+      },
+      {
+         "name": "multiqc",
+         "machine": 31,
+         "start": 54007367.59890265,
+         "finish": 54007379.38015265,
+         "expected runtime on this machine ": "11.44347470284269",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 50815374.06472038,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "sexdeterrmine",
+         "machine": 11,
+         "start": 25494662.698095363,
+         "finish": 25494674.479345363,
+         "expected runtime on this machine ": "10.726929389339205",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 49084240.84405518,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "malt",
+         "machine": 33,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "10.582577316605938",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48547153.57838171,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "maltextract",
+         "machine": 34,
+         "start": 11.88125,
+         "finish": 23.6625,
+         "expected runtime on this machine ": "11.770583428991015",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 55070353.294567585,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "convertbam",
+         "machine": 30,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "12.125634336771393",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 39258655.85237999,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "fastqc",
+         "machine": 30,
+         "start": 23.5625,
+         "finish": 1579096.15625,
+         "expected runtime on this machine ": "1542901.6502902396",
+         "actual runtime on this machine ": "1579072.59375",
+         "expected memory usage ": 246005865.14346254,
+         "actual memory usage": 266915888
+      },
+      {
+         "name": "fastp",
+         "machine": 30,
+         "start": 11.78125,
+         "finish": 23.5625,
+         "expected runtime on this machine ": "12.94908106646602",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 53492672.56250342,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "adapter_removal",
+         "machine": 31,
+         "start": 461104.65623106644,
+         "finish": 5714626.249981066,
+         "expected runtime on this machine ": "5472569.003247935",
+         "actual runtime on this machine ": "5253521.59375",
+         "expected memory usage ": 106628589.47765379,
+         "actual memory usage": 122844720
+      },
+      {
+         "name": "post_ar_fastq_trimming",
+         "machine": 34,
+         "start": 5933673.759478945,
+         "finish": 5933685.540728945,
+         "expected runtime on this machine ": "13.714870085908768",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 52093026.48364161,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "fastqc_after_clipping",
+         "machine": 9,
+         "start": 6162691.463626552,
+         "finish": 6871575.744876552,
+         "expected runtime on this machine ": "706491.2595831816",
+         "actual runtime on this machine ": "708884.28125",
+         "expected memory usage ": 221516798.245707,
+         "actual memory usage": 245891632
+      },
+      {
+         "name": "lanemerge",
+         "machine": 31,
+         "start": 5933673.659479002,
+         "finish": 5933685.440729002,
+         "expected runtime on this machine ": "11.913163619458254",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 58910004.850701764,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bowtie2",
+         "machine": 8,
+         "start": 5933685.640728861,
+         "finish": 5933697.421978861,
+         "expected runtime on this machine ": "9.881362659797448",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 54512254.717488244,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "indexinputbam",
+         "machine": 8,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "12.4808548595015",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 46481011.36663963,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "hostremoval_input_fastq",
+         "machine": 34,
+         "start": 24854231.423680045,
+         "finish": 24854243.204930045,
+         "expected runtime on this machine ": "10.591032984962201",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 50529398.0665492,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "seqtype_merge",
+         "machine": 31,
+         "start": 24854231.323680203,
+         "finish": 24854243.104930203,
+         "expected runtime on this machine ": "12.36540488332874",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 43547925.39532135,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "samtools_flagstat",
+         "machine": 9,
+         "start": 24900066.693305157,
+         "finish": 24983726.099555157,
+         "expected runtime on this machine ": "85899.21203549099",
+         "actual runtime on this machine ": "83659.40625",
+         "expected memory usage ": 27623248.440344237,
+         "actual memory usage": 22869040
+      },
+      {
+         "name": "samtools_filter",
+         "machine": 31,
+         "start": 24854243.689085085,
+         "finish": 24932992.970335085,
+         "expected runtime on this machine ": "70951.89098054572",
+         "actual runtime on this machine ": "78749.28125",
+         "expected memory usage ": 25142555.65297896,
+         "actual memory usage": 25462832
+      },
+      {
+         "name": "dedup",
+         "machine": 6,
+         "start": 24932992.973588772,
+         "finish": 24933004.754838772,
+         "expected runtime on this machine ": "13.148383703333117",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48741421.96378417,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "markduplicates",
+         "machine": 31,
+         "start": 24932992.970335085,
+         "finish": 25494614.907835085,
+         "expected runtime on this machine ": "483309.5783738848",
+         "actual runtime on this machine ": "561621.9375",
+         "expected memory usage ": 1593284035.5813878,
+         "actual memory usage": 1790257200
+      },
+      {
+         "name": "samtools_flagstat_after_filter",
+         "machine": 10,
+         "start": 24945375.87200274,
+         "finish": 24965617.55950274,
+         "expected runtime on this machine ": "18662.957740016038",
+         "actual runtime on this machine ": "20241.6875",
+         "expected memory usage ": 25208993.479900956,
+         "actual memory usage": 22831152
+      },
+      {
+         "name": "preseq",
+         "machine": 8,
+         "start": 24945343.094008468,
+         "finish": 25117891.437758468,
+         "expected runtime on this machine ": "141446.82177205192",
+         "actual runtime on this machine ": "172548.34375",
+         "expected memory usage ": 22836596.162756253,
+         "actual memory usage": 23598640
+      },
+      {
+         "name": "lanemerge_hostremoval_fastq",
+         "machine": 35,
+         "start": 11.16448737977903,
+         "finish": 22.945737379779032,
+         "expected runtime on this machine ": "11.93076335026882",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 56769149.14435077,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "endorspy",
+         "machine": 30,
+         "start": 24983726.149623185,
+         "finish": 24983737.930873185,
+         "expected runtime on this machine ": "12.773793707038019",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 54658938.07611977,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "metagenomic_complexity_filter",
+         "machine": 33,
+         "start": 24932993.070335086,
+         "finish": 24933004.851585086,
+         "expected runtime on this machine ": "9.577419107254693",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 46732197.28139993,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "nuclear_contamination",
+         "machine": 11,
+         "start": 25494615.007834245,
+         "finish": 25494626.789084245,
+         "expected runtime on this machine ": "11.339069708403375",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 38920410.666612476,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "mtnucratio",
+         "machine": 32,
+         "start": 25494615.007834245,
+         "finish": 25494626.789084245,
+         "expected runtime on this machine ": "11.0227734873939",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 44723933.8833504,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "library_merge",
+         "machine": 31,
+         "start": 25494614.907835085,
+         "finish": 25494626.689085085,
+         "expected runtime on this machine ": "12.226347136763394",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48880803.804306194,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bedtools",
+         "machine": 33,
+         "start": 25494627.13418306,
+         "finish": 25494638.91543306,
+         "expected runtime on this machine ": "12.133723907410578",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48383748.561012715,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "bam_trim",
+         "machine": 31,
+         "start": 25494627.134182222,
+         "finish": 25494638.915432222,
+         "expected runtime on this machine ": "12.001412302993316",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 54499855.53653971,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "additional_library_merge",
+         "machine": 31,
+         "start": 25494639.135594524,
+         "finish": 25494650.916844524,
+         "expected runtime on this machine ": "8.183420218572206",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 44731081.435873024,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "sexdeterrmine_prep",
+         "machine": 11,
+         "start": 25494650.916845363,
+         "finish": 25494662.698095363,
+         "expected runtime on this machine ": "11.99253064767611",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 47968550.231888585,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "print_nuclear_contamination",
+         "machine": 30,
+         "start": 25494626.789084245,
+         "finish": 25494638.570334245,
+         "expected runtime on this machine ": "11.541368895264366",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48485982.02905171,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "eigenstrat_snp_coverage",
+         "machine": 10,
+         "start": 25494662.698095363,
+         "finish": 25494674.479345363,
+         "expected runtime on this machine ": "10.99692815383816",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 53038039.93052672,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "kraken",
+         "machine": 11,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "11.064487379779031",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48332818.68042175,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "kraken_parse",
+         "machine": 33,
+         "start": 11.88125,
+         "finish": 23.6625,
+         "expected runtime on this machine ": "11.038079520417014",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 46528604.42107041,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "kraken_merge",
+         "machine": 35,
+         "start": 23.762500000000003,
+         "finish": 35.54375,
+         "expected runtime on this machine ": "12.68355704763424",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 55525961.76027185,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "output_documentation",
+         "machine": 18,
+         "start": 0.0,
+         "finish": 31.416666666666668,
+         "expected runtime on this machine ": "31.039335447283758",
+         "actual runtime on this machine ": "31.416666666666668",
+         "expected memory usage ": 45254440.45952339,
+         "actual memory usage": 50000000
+      },
+      {
+         "name": "get_software_versions",
+         "machine": 34,
+         "start": 0.0,
+         "finish": 11.78125,
+         "expected runtime on this machine ": "12.163254921122856",
+         "actual runtime on this machine ": "11.78125",
+         "expected memory usage ": 48098423.278246544,
+         "actual memory usage": 50000000
+      }
+   ],
+   "failed": []
+}
