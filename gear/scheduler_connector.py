@@ -22,7 +22,7 @@ class SchedulerConnector:
         }
         print("send request to scheduler")
         try:
-            r = requests.post(f'{self.url}/wf/new', json=data, timeout=1000)
+            r = requests.post(f'{self.url}/wf/new', json=data, timeout=100000)
         except requests.ConnectionError:
             print('Error connecting to scheduler.', file=sys.stderr)
             exit(-1)
